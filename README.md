@@ -13,7 +13,6 @@ Este repositório contém o código de um aplicativo Flutter que utiliza uma red
 - **Captura de Imagem**: O usuário pode tirar uma foto diretamente no aplicativo ou selecionar uma imagem da galeria.
 - **Classificação de Plantas**: Após a captura da imagem, o modelo classifica a planta e retorna o nome da espécie.
 - **Exibição de Resultados**: O nome da planta é exibido, junto com a probabilidade de acerto.
-- **Feedback de Precisão**: O aplicativo também exibe o nível de confiança na classificação realizada.
 
 ## Requisitos
 
