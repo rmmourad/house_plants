@@ -90,7 +90,4 @@ dependencies:
 <img src="https://github.com/user-attachments/assets/b08801db-983f-4b5d-812d-c05d93d4454a">
 <img src="https://github.com/user-attachments/assets/1b5bdfb3-c296-4c0b-92e0-5e91b02eb639">
 
----
-
-Esse é um guia básico para configurar o projeto e seu funcionamento. Caso tenha dúvidas ou problemas, sinta-se à vontade para abrir uma *issue* aqui no GitHub!
 
