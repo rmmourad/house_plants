@@ -83,13 +83,12 @@ dependencies:
   flutter_tflite: ^1.1.2
 ```
 
-## Contribuição
+## Capturas de Tela
 
-Se você deseja contribuir para este projeto, fique à vontade para fazer um fork e enviar pull requests. Antes de enviar contribuições significativas, por favor, abra uma *issue* para discutir os detalhes da alteração proposta.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
+<img src="https://github.com/user-attachments/assets/a8f632ea-e86c-4250-aece-be7ac3c500b5">
+<img src="https://github.com/user-attachments/assets/80d06413-9777-44c8-b23f-4e25cfa568e4">
+<img src="https://github.com/user-attachments/assets/b08801db-983f-4b5d-812d-c05d93d4454a">
+<img src="https://github.com/user-attachments/assets/1b5bdfb3-c296-4c0b-92e0-5e91b02eb639">
 
 ---
 
