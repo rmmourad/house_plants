@@ -12,7 +12,7 @@ Este repositório contém o código de um aplicativo Flutter que utiliza uma red
 
 - **Captura de Imagem**: O usuário pode tirar uma foto diretamente no aplicativo ou selecionar uma imagem da galeria.
 - **Classificação de Plantas**: Após a captura da imagem, o modelo classifica a planta e retorna o nome da espécie.
-- **Exibição de Resultados**: O nome da planta é exibido, junto com a probabilidade de acerto.
+- **Exibição de Resultados**: O nome da planta é exibido.
 
 ## Requisitos
 
@@ -45,14 +45,24 @@ flutter run
 O modelo foi treinado utilizando imagens de plantas e salvando-o em formato TensorFlow Lite. Para treinar o modelo, siga os seguintes passos:
 
 1. Prepare um dataset com imagens das plantas.
-2. Use o TensorFlow para treinar a rede neural com base nas imagens.
-3. Converta o modelo treinado para o formato TensorFlow Lite utilizando o comando:
+2. Use o TensorFlow e Keras para treinar a rede neural com base nas imagens.
+3. Salve as categorias possíveis para as plantas utilizando o código:
+```bash
+labels = '\n'.join(sorted(train_gen.class_indices.keys()))
+with open('plant_labels.txt', 'w') as f: 
+    f.write(labels)
+``` 
+4. Converta o modelo treinado para o formato TensorFlow Lite com o seguinte trecho de código:
 
 ```bash
-tflite_convert --saved_model_dir=/path/to/saved_model --output_file=model.tflite
+tf.keras.models.save_model(model, MODEL_SAVE_PATH, save_format="tf")
+saved_model = tf.keras.models.load_model('plant_recognition.h5')
+converter = tf.lite.TFLiteConverter.from_keras_model(saved_model)
+tflite_model = converter.convert()
+open(TFLITE_SAVE_PATH, "wb").write(tflite_model)
 ```
 
-4. Coloque o arquivo `model.tflite` na pasta `assets/` do seu projeto Flutter.
+4. Coloque o arquivo `plant_model.tflite` na pasta `assets/` do seu projeto Flutter.
 
 ## Estrutura do Projeto
 
@@ -69,7 +79,6 @@ As principais dependências do projeto são:
 
 - `flutter_tflite`: Para integrar o modelo TensorFlow Lite ao Flutter.
 - `image_picker`: Para selecionar imagens da galeria ou capturar novas fotos.
-- `camera`: Para capturar imagens diretamente pela câmera do dispositivo.
 
 Exemplo do `pubspec.yaml`:
 
@@ -78,7 +87,6 @@ dependencies:
   flutter:
     sdk: flutter
   image_picker: ^0.8.5+3
-  camera: ^0.10.0
   flutter_tflite: ^1.1.2
 ```
 
